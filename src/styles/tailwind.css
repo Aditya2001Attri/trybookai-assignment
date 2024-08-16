@@ -1,0 +1,20 @@
+/* src/styles/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark .bg-gray-800 {
+  @apply bg-darkBackground;
+}
+
+.dark .bg-white {
+  @apply bg-darkCard;
+}
+
+.bg-gray-100 {
+  @apply bg-lightBackground;
+}
+
+.bg-white {
+  @apply bg-lightCard;
+}
