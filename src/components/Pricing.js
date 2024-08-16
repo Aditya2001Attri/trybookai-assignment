@@ -25,11 +25,11 @@ const pricingPlans = [
 ];
 
 // Pricing Card Component
-const PricingCard = ({ title, price, features, buttonText }) => (
-  <article className="card p-6 border rounded-lg shadow-md w-full md:w-64 bg-white dark:bg-gray-800 dark:text-white hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1">
+const PricingCard = ({ title, price, features, buttonText, bgColor, borderColor }) => (
+  <article className={`card p-6 border rounded-lg shadow-md w-full md:w-64 ${bgColor} ${borderColor} dark:${bgColor} dark:text-white hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1`}>
     <header className="mb-4">
       <h3 className="text-2xl font-semibold mb-2">{title}</h3>
-      <p className="text-xl">{price}</p>
+      <p className="text-xl font-bold">{price}</p>
     </header>
     <ul className="mb-4">
       {features.map((feature, index) => (
@@ -38,7 +38,7 @@ const PricingCard = ({ title, price, features, buttonText }) => (
         </li>
       ))}
     </ul>
-    <button className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-300">
+    <button className="w-full py-2 px-4 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors duration-300">
       {buttonText}
     </button>
   </article>
@@ -59,6 +59,8 @@ const Pricing = () => {
               price={plan.price}
               features={plan.features}
               buttonText={plan.buttonText}
+              bgColor={index === 0 ? 'bg-gradient-to-r from-teal-200 to-teal-400' : index === 1 ? 'bg-gradient-to-r from-blue-200 to-blue-400' : 'bg-gradient-to-r from-purple-200 to-purple-400'}
+              borderColor={index === 0 ? 'border-teal-400' : index === 1 ? 'border-blue-400' : 'border-purple-400'}
             />
           ))}
         </div>
